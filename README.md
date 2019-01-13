@@ -14,6 +14,19 @@ From the provided dataset the data is presented in a structured format, sorted b
 Pre-processing of the dataset also includes JSON data nested into the data structure to provide metadata.
 In the sample data for instance, the `map.json` file provides a mapping of all sub-directory data (http://fnndsc.childrens.harvard.edu/rev/viewer/library-anon/map.json)
 
+Sample JSON data:
+
+```
+{
+    "data": [
+        "./00-yr/00-mo/01-ex",
+        "./00-yr/00-mo/02-ex",
+        "./00-yr/00-mo/03-ex",
+        ...
+    ]
+}
+```
+
 The JSON data can be modified on the server/generation side to extend the data being delivered.
 The benefit of serving JSON data.
 
