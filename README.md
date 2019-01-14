@@ -1,10 +1,11 @@
 # fnndsc
+
 Notes and snippets for FNNDSC image presentation system.
 
-The goal of the exercise is to find a way to present the image dataset provided in a web page<sup>*</sup>.
+The goal of the exercise is to find a way to present the image dataset provided in a web page<sup>1</sup>.
 
 
-<sup>*</sup> By "web page" I am assuming any sort of web-delivery technology utilizing a browser as the client-side renderer.
+<sup>1</sup> By "web page" I am assuming any sort of web-delivery technology utilizing a browser as the client-side renderer.
 (Not that a properly architected solution like what's already been setup couldn't be leveraged in a native app as well.)
 
 
