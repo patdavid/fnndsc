@@ -13,11 +13,18 @@
                 var resp = JSON.parse(request.responseText);
                 console.log( resp );
 
-                mapout = "";
+                //mapout = "";
+                var mapresp = document.querySelector("#mapresponse .resp");
+
                 resp.data.forEach(function( iter ){
-                    mapout += "<div>"+ iter +"</div>";
+                    var iterdiv = document.createElement('div');
+
+                    iterdiv.innerText = iter;
+                    iterdiv.addEventListener("click", loadEx );
+                    iterdiv.style.cursor = "pointer";
+
+                    mapresp.appendChild( iterdiv );
                 });
-                document.querySelector("#mapresponse .resp").innerHTML = mapout;
             };
 
             // Not strictly needed if we control the endpoint
@@ -28,8 +35,62 @@
             request.open('GET', req_uri, true);
             request.send(null);
             
+
+            function loadEx(){
+                // this.innerText = "./00-yr/00-mo/01-ex"
+                // Get the yr/mo to find ex.json
+                // Then use /ex to match entry from request
+                var tm = this.innerText;
+                var yrmo = tm.substring(0, tm.lastIndexOf("/") + 1);
+                var ex = tm.substring( tm.lastIndexOf("/") +1, tm.length);
+                console.log ("yrmo:"+ yrmo +" ex:"+ ex );
+
+                var request = new XMLHttpRequest();
+                var req_uri = "../data/"+ yrmo +"/ex.json";
+
+                request.onload = function(){
+                    // Ideally this gets folded into it's own class
+                    var resp = JSON.parse(request.responseText);
+
+                    var exresp = document.querySelector("#exresponse .resp");
+                    var expre = document.createElement('pre');
+                    expre.innerText = JSON.stringify( resp[ex], null, 4);
+                    if( exresp.firstChild ){ 
+                        exresp.replaceChild( expre, exresp.firstChild );
+                    }else{
+                        exresp.appendChild( expre );
+                    };
+                };
+
+                request.overrideMimeType("application/json");
+                request.open('GET', req_uri, true);
+                request.send(null);
+            }
         </script>
 
+
+        <style>
+            section#data {
+                border: solid 1px #888;
+            }
+            #mapresponse {
+                float: left;
+                max-width: 200px;
+                padding: 1rem;
+                border-right: solid 1px #ccc;
+            }
+            #mapresponse .resp div:hover {
+                text-decoration: underline;
+            }
+            #exresponse {
+                float: left;
+                padding: 1rem;
+                max-width: 800px;
+            }
+            #exresponse .resp pre {
+                white-space: pre-wrap;
+            }
+        </style>
     </head>
     <body>
 
@@ -47,7 +108,7 @@
         <p>
             There are JSON files generated during image pre-processing that we can target for this example.  The first might be the map of data from the overall dataset that lists all of the sub-directory locations:
         </p>
-        <code>
+        <pre>
             {
                 "data": [
                     "./00-yr/00-mo/01-ex",
@@ -61,15 +122,29 @@
                     ...
                 ]
             }
-        </code>
+        </pre>
 
         <hr>
 
-        <div id='mapresponse'>
-            This div should contain the contents of initial xmlhttpresponse fired on page load:
-            <div class='resp'></div>
-        </div>
+        <p>
+            You can click on the map.json entries below left to fire off new xmlhttprequests of JSON data.  This should work for the 00-yr/00-mo/ entries (I haven't downloaded the others yet).
+        </p>
 
+        <section id='data'>
+            <div id='mapresponse'>
+                <p>This div should contain the contents of initial xmlhttpresponse fired on page load:
+                </p>            
+                <div class='resp'></div>
+            </div>
+
+            <div id='exresponse'>
+                <p>
+                    This div will contain metadata of activated link on left
+                </p>
+                <div class='resp'></div>
+            </div>
+            <br style="clear: both;">
+        </section>
 
     </body>
 </html>

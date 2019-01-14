@@ -1,0 +1,13 @@
+{
+    "01-ex": {
+        "name": "01-ex",
+        "imageLocation": [
+            "/var/www/html/rev/viewer/library-anon/./00-yr/10-mo/01-ex/AX_TSE_T2-AX_TSE_T2-71789/dcm2jpgRaw/middle-AX_TSE_T2-AX_TSE_T2-71789.jpg",
+            "/var/www/html/rev/viewer/library-anon/./00-yr/10-mo/01-ex/COR_MPRAGE_RECONS-SAG_MPRAGE_220_FOV-71786/dcm2jpgRaw/middle-COR_MPRAGE_RECONS-SAG_MPRAGE_220_FOV-71786.jpg",
+            "/var/www/html/rev/viewer/library-anon/./00-yr/10-mo/01-ex/SAG_MPRAGE_220_FOV-SAG_MPRAGE_220_FOV-71785/dcm2jpgRaw/middle-SAG_MPRAGE_220_FOV-SAG_MPRAGE_220_FOV-71785.jpg",
+            "/var/www/html/rev/viewer/library-anon/./00-yr/10-mo/01-ex/COR_FSE_T2-COR_FSE_T2-71780/dcm2jpgRaw/middle-COR_FSE_T2-COR_FSE_T2-71780.jpg",
+            "/var/www/html/rev/viewer/library-anon/./00-yr/10-mo/01-ex/AX_T2_FLAIR-AX_T2_FLAIR-71788/dcm2jpgRaw/middle-AX_T2_FLAIR-AX_T2_FLAIR-71788.jpg",
+            "/var/www/html/rev/viewer/library-anon/./00-yr/10-mo/01-ex/AX_MPRAGE_RECONS-SAG_MPRAGE_220_FOV-71787/dcm2jpgRaw/middle-AX_MPRAGE_RECONS-SAG_MPRAGE_220_FOV-71787.jpg"
+        ]
+    }
+}
