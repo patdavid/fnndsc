@@ -11,6 +11,8 @@ The goal of the exercise is to find a way to present the image dataset provided 
 
 ## Dataset
 
+**Note:** Currently, a fresh clone of the fnndsc data repo and following the instructions trips an error during processing JPG files using `pfdicom_rev`.  Details of the error [are documented on a separate page](pfdicom_rev-error.md).
+
 From the provided dataset the data is presented in a structured format, sorted by age in a `00-yr/00-mo/subj-N-NNNN-ex` structure.
 Pre-processing of the dataset also includes JSON data nested into the data structure to provide metadata.
 In the sample data for instance, the `map.json` file provides a mapping of all sub-directory data (http://fnndsc.childrens.harvard.edu/rev/viewer/library-anon/map.json)
