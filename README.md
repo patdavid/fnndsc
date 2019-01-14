@@ -75,7 +75,7 @@ Firing up a viewer page:
 #### XMLHttpRequest
 
 We can request JSON data from the data structures fairly easily using classical XMLHttpRequest objects in JavaScript.  
-An [example xmlhttprequest](example-xmlhttprequest/).
+Here is a quick [example xmlhttprequest](example-xmlhttprequest/) with the data.
 
 
 
@@ -121,6 +121,14 @@ tag-csv.txt
 tag-dict.txt
 tag-raw.txt
 ```
+
+
+#### An Interesting Addendum on Image Information
+
+I had done some work years ago on implementing something known as "Pseudogrey" by it's creator, Rich Franzen.
+
+The idea is that you can mimic higher value tones in an image, like a 10-bit medical image, into the 8-bit image space (PNG, JPG) by "bit-stealing" and introducing _slight_ color into the images.  The idea was to do luminosity mapping of subtle ranges in order to expand the possibly values that can be displayed beyond 8-bit grayscale images.
+This is something that could be done in the imagemagick commands fairly easily I think, and may be worth looking into?
 
 
 ## Design
