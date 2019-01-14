@@ -1,9 +1,9 @@
 # fnndsc
 
 Notes and snippets for FNNDSC image presentation system.
+The Github repo for these pages: https://github.com/patdavid/fnndsc.
 
-The goal of the exercise is to find a way to present the image dataset provided in a web page<sup>1</sup>.
-
+The goal of the exercise is to find a way to present the image dataset in a web page<sup>1</sup>.
 
 <sup>1</sup> By "web page" I am assuming any sort of web-delivery technology utilizing a browser as the client-side renderer.
 (Not that a properly architected solution like what's already been setup couldn't be leveraged in a native app as well.)
@@ -80,7 +80,7 @@ Here is a quick [example xmlhttprequest](example-xmlhttprequest/) with the data.
 
 #### Scan/Study Class Example
 
-Fire up an example of a study class with some methods to demonstrate the base object to present to the rest of the app.
+Fire up an example of a study class with some methods to demonstrate the base object to present to the rest of an app.
 
 
 ### Notes on existing data
@@ -139,3 +139,17 @@ This is something that could be done in the imagemagick commands fairly easily I
 
 UI/UX interaction (should) can be separated from the underlying data management and manipulation.
 Interaction views should be components that can be mutated as needed with relevant data as requested.  This allows those components to also be re-used as required.
+
+
+### Use
+
+The problem requires some time to investigate and understand better a typical users patterns of interacting with the data, what their requirements are, and how they might expect things to work.
+A thorough understanding of their requirements and habits will yield a far better guide for implementing the UI and directing the UX for maximum efficiency.
+
+
+
+
+
+
+
+
