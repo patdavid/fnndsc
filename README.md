@@ -57,7 +57,7 @@ One approach to the problem becomes readily apparent when considering the domain
     Even if there isn't a formal API set up to handle more advanced requests the base capability of querying and parsing JSON files from the filesystem might be enough for this example.  That is, if we wanted to access a specific JSON resource, we can do a simple XMLHTTPRequest for it.
 
     TODO: Demonstrate a simple XMLHTTPRequest against http://fnndsc.childrens.harvard.edu/rev/viewer/library-anon/00-yr/00-mo/ex.json
-    [example xmlhttprequest](/example-xmlhttprequest/).
+    [example xmlhttprequest](example-xmlhttprequest/).
 
 
 ## Design
