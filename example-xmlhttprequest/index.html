@@ -12,6 +12,12 @@
                 console.log("onload...");
                 var resp = JSON.parse(request.responseText);
                 console.log( resp );
+
+                mapout = "";
+                resp.data.forEach(function( iter ){
+                    mapout += "<div>"+ iter +"</div>";
+                });
+                document.querySelector("#mapresponse .resp").innerHTML = mapout;
             };
 
             // Not strictly needed if we control the endpoint
@@ -56,6 +62,13 @@
                 ]
             }
         </code>
+
+        <hr>
+
+        <div id='mapresponse'>
+            This div should contain the contents of initial xmlhttpresponse fired on page load:
+            <div class='resp'></div>
+        </div>
 
 
     </body>
