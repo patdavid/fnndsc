@@ -34,3 +34,18 @@ The JSON data can be modified on the server/generation side to extend the data b
 The benefit of serving JSON data.
 
 The sample dataset from the github repo also provides more JSON files alongside existing image data to provide further information.
+
+
+## Process Architecture
+
+One approach to the problem becomes readily apparent when considering the domain:
+
+1. Assets for the system are accessible through REST API calls against the webserver.
+    That is, all of the created assets will be accessible through network calls against the webserver.
+
+    Even if there isn't a formal API set up to handle more advanced requests the base capability of querying and parsing JSON files from the filesystem might be enough for this example.  That is, if we wanted to access a specific JSON resource, we can do a simple XMLHTTPRequest for it.
+
+    TODO: Demonstrate a simple XMLHTTPRequest against http://fnndsc.childrens.harvard.edu/rev/viewer/library-anon/00-yr/00-mo/ex.json
+
+
+## Design

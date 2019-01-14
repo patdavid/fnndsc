@@ -1,0 +1,62 @@
+<html lang='en'>
+    <head>
+    
+        <script type="text/javascript">
+        
+            // Let's setup a classical XMLHttprequest
+            var request = new XMLHttpRequest();
+            var req_uri = "/data/map.json";
+
+            // check onreadystatechange for status
+            request.onload = function(){
+                console.log("onload...");
+                var resp = JSON.parse(request.responseText);
+                console.log( resp );
+            };
+
+            // Not strictly needed if we control the endpoint
+            // and it's well formed JSON
+            request.overrideMimeType("application/json");
+
+            // fire off request
+            request.open('GET', req_uri, true);
+            request.send(null);
+            
+        </script>
+
+    </head>
+    <body>
+
+
+
+        <h1>XMLHTTPRequest for JSON</h1>
+        <p>
+            This page will demonstrate making a simple, classical XMLHTTPRequest against a network resource.
+            The assumption here is for maximum compatibility with clients (full spectrum of modern browsers, Chrome, FF, IE/Edge, Safari at least).
+        </p>
+        <p>
+            This means we will need to fall back to some older methods of JSON request and retrieval (thanks again to Microsoft IE11 <a href="https://caniuse.com/#feat=fetch">we can't use Fetch</a>).  This is ok, just need to dust off some trusty fallbacks.
+        </p>
+
+        <p>
+            There are JSON files generated during image pre-processing that we can target for this example.  The first might be the map of data from the overall dataset that lists all of the sub-directory locations:
+        </p>
+        <code>
+            {
+                "data": [
+                    "./00-yr/00-mo/01-ex",
+                    "./00-yr/00-mo/02-ex",
+                    "./00-yr/00-mo/03-ex",
+                    "./00-yr/00-mo/04-ex",
+                    "./00-yr/10-mo/01-ex",
+                    "./00-yr/09-mo/01-ex",
+                    "./00-yr/09-mo/02-ex",
+                    "./00-yr/09-mo/03-ex",
+                    ...
+                ]
+            }
+        </code>
+
+
+    </body>
+</html>
