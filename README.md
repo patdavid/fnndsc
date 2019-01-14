@@ -78,6 +78,10 @@ We can request JSON data from the data structures fairly easily using classical 
 Here is a quick [example xmlhttprequest](example-xmlhttprequest/) with the data.
 
 
+#### Scan/Study Class Example
+
+Fire up an example of a study class with some methods to demonstrate the base object to present to the rest of the app.
+
 
 ### Notes on existing data
 
