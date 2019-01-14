@@ -5,6 +5,12 @@ It appears when attempting to work on `/agesort/./03-yr/04-mo/subj-3-14482-ex/ep
 
 I haven't had a chance to look at the pfdicom_rev.py to see if there could be some error handling included.
 
+```
+Python 3.6.7
+pip 18.1
+Ubuntu 18.04.1 LTS
+```
+
 
 ## The Error
 
