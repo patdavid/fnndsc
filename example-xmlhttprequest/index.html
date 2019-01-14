@@ -40,7 +40,18 @@
                 // this.innerText = "./00-yr/00-mo/01-ex"
                 // Get the yr/mo to find ex.json
                 // Then use /ex to match entry from request
+
+                // This just sets styling for selected item in list quickly:
+                document.querySelector("#mapresponse .resp").childNodes.forEach(function (curr) {
+                    curr.style.fontWeight = 'normal';
+                });
+                this.style.fontWeight = "bold";
+
+                // The response text:
                 var tm = this.innerText;
+
+                // Split into NN-yr/NN-mo/ as yrmo,
+                // and NN-ex as ex
                 var yrmo = tm.substring(0, tm.lastIndexOf("/") + 1);
                 var ex = tm.substring( tm.lastIndexOf("/") +1, tm.length);
                 console.log ("yrmo:"+ yrmo +" ex:"+ ex );
