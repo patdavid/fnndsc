@@ -1,6 +1,7 @@
 <html lang='en'>
     <head>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="vue-scroll.min.js"></script>
     </head>
 
     <body>
@@ -12,18 +13,38 @@
         <hr>
 
         <section id='app'>
-            {{ hello }}
+            <div>
+                <p>{{ hello }}</p>
+            </div>            
             <image-main></image-main>
             <image-two
-                :newsource=imgsrc
+                :newsource=obj.currImage
+                v-bind=obj
+                :word=obj.currImage
                 ></image-two>
         </section>
     </body>
 
     <script>
+        
+        function out( e ){
+            console.log("Inside out");
+        };
+
+        var store = {
+            state: {
+                currImage: 'nyan.gif',
+                currIdx: null
+            },
+            imgList: [],
+            loadImages (srcs) {
+
+            }
+        }
+
         Vue.component('image-main', {
             // This component can mutate it's own property
-            template: '<img :src=source>',
+            template: '<div><img :src=source></div>',
             data: function() {
                 return {
                     source: 'image.jpg'
@@ -34,20 +55,69 @@
         Vue.component('image-two', {
             // This component is tied to the app properties
             // so mutate in the parent.
-            props: ['newsource'],
-            template: '<img :src=newsource>'
+            props: ['newsource', 'word'],
+            methods: {
+                wheelie: function( event ){
+                    // event has deltaY for mousewheel
+                    console.log( event.deltaY );
+                    console.log( store.state.currIdx );
+                    if ( store.state.currIdx == null ){
+                        console.log( "It's null....");
+                        store.state.currIdx = 0;
+                        store.state.currImage = store.imgList[0].src;
+                    };
+                    if ( event.deltaY < 0 && store.state.currIdx > 0 ){
+                        store.state.currIdx = store.state.currIdx - 1;
+                        store.state.currImage = store.imgList[ store.state.currIdx ].src
+                    }else if ( event.deltaY > 0 && store.state.currIdx < store.imgList.length ){
+                        console.log( store.imgList.length );
+                        store.state.currIdx = store.state.currIdx + 1;
+                        store.state.currImage = store.imgList[ store.state.currIdx ].src
+                    }
+                    //out( event );
+                }
+            },
+            computed: {
+                wordshort: function() {
+                    return this.word.substring(this.word.lastIndexOf('/') + 1);
+                }
+            },
+            template: '<div><img @wheel="wheelie" :src=newsource><p>{{ wordshort }}</p></div>'
         })
 
         // Fire it up
         var app = new Vue({
             el: '#app',
             data: {
-                hello: 'Yeah, hello world...',
+                hello: 'Yeah, hello world.  Try scrolling a mouse wheel over the image below:',
                 imgsrc: "https://patdavid.net/2018/05/switching-themes//The_Dark.jpg",
-                test: { 
-                    isrc: 'https://patdavid.net/2018/05/goodbye-google-analytics//512px-Faust_und_Mephisto%2C_Stich_von_Tony_Johannot.jpg' 
-                }
+                obj: store.state
             }
         })
+
+        // Factory for image loading
+        var loadImages = function( src ){
+            var img = new Image();
+            img.src = src;
+            return img;
+        }
+        
+
+        var req = new XMLHttpRequest();
+        var req_uri = "../data/00-yr/00-mo/subj-4-5386-ex/AX_MPRAGE-SAG_MPRAGE-66564/dcm2jpgDCMresize/";
+
+        req.onload = function(){
+            var resp = JSON.parse(req.responseText);
+            console.log( resp.length );
+            resp.images.forEach(function( iter ){
+                //console.log( req_uri + iter );
+                store.imgList.push( loadImages(req_uri + iter) );
+            });
+        }
+
+        req.overrideMimeType("application/json");
+        req.open('GET', req_uri +'list.json', true);
+        req.send(null);
+
     </script>
 </html>
