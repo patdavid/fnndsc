@@ -78,6 +78,16 @@ We can request JSON data from the data structures fairly easily using classical 
 Here is a quick [example xmlhttprequest](example-xmlhttprequest/) with the data.
 
 
+#### Vue.js Components
+
+Thought I'd see what's going on in Vue.js land.  Quickly setup an example page with a couple of components tied to a
+data store.  I load a list of images on page load and use an async factory to load all the images into the page.
+
+Then use native Vue.js components and data binding to mutate the data when you scroll your mouse over the example image.
+This is _not_ fancy in any way, just a quick proof of concept that it works as expected (I've never used Vue.js before, so it's possibly a little ugly).
+
+Here is the [example Vue.js](example-vuejs/) page to play with.
+
 #### Scan/Study Class Example
 
 Fire up an example of a study class with some methods to demonstrate the base object to present to the rest of an app.
