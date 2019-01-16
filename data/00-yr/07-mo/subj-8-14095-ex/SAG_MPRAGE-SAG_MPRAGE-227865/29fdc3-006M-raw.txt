@@ -1,0 +1,103 @@
+(0008, 0050) Accession Number                    SH: '36ed5d5abf'
+(0008, 0022) Acquisition Date                    DA: '20150707'
+(0018, 1310) Acquisition Matrix                  US: [0, 256, 256, 0]
+(0020, 0012) Acquisition Number                  IS: "1"
+(0008, 0032) Acquisition Time                    TM: '135705.752500'
+(0018, 0025) Angio Flag                          CS: 'N'
+(0028, 0100) Bits Allocated                      US: 16
+(0028, 0101) Bits Stored                         US: 12
+(0018, 0015) Body Part Examined                  CS: 'BRAIN'
+(0028, 0011) Columns                             US: 256
+(0040, 0280) Comments on the Performed Procedure ST: ''
+(0008, 0023) Content Date                        DA: '20150707'
+(0008, 0033) Content Time                        TM: '140333.637000'
+(0018, 1000) Device Serial Number                LO: '45152'
+(0018, 0086) Echo Number(s)                      IS: "1"
+(0018, 0081) Echo Time                           DS: "2.58"
+(0018, 0091) Echo Train Length                   IS: "1"
+(0010, 2160) Ethnic Group                        SH: 'U'
+(0018, 1314) Flip Angle                          DS: "9"
+(0020, 0052) Frame of Reference UID              UI: 1.3.12.2.1107.5.2.19.45152.1.20150707135336361.0.0.0
+(0028, 0102) High Bit                            US: 11
+(0020, 0037) Image Orientation (Patient)         DS: ['0.04398432424097', '0.87213728807058', '-0.4872801350127', '-0.0081604800488', '-0.4874222530571', '-0.8731282573541']
+(0020, 0032) Image Position (Patient)            DS: ['-7.77185567725', '1.9800075259018', '101.15191270033']
+(0008, 0008) Image Type                          CS: ['ORIGINAL', 'PRIMARY', 'M', 'ND', 'NORM']
+(0018, 0085) Imaged Nucleus                      SH: '1H'
+(0018, 0084) Imaging Frequency                   DS: "123.155628"
+(0018, 1312) In-plane Phase Encoding Direction   CS: 'ROW'
+(0008, 0012) Instance Creation Date              DA: '20150707'
+(0008, 0013) Instance Creation Time              TM: '140333.637000'
+(0020, 0013) Instance Number                     IS: "89"
+(0008, 0081) Institution Address                 ST: 'InstitutionAddress'
+(0008, 0080) Institution Name                    LO: 'InstitutionName'
+(0008, 1040) Institutional Department Name       LO: 'Department'
+(0018, 0082) Inversion Time                      DS: "900"
+(0028, 0107) Largest Image Pixel Value           US: 563
+(0018, 0023) MR Acquisition Type                 CS: '3D'
+(0018, 0087) Magnetic Field Strength             DS: "3"
+(0008, 0070) Manufacturer                        LO: 'SIEMENS'
+(0008, 1090) Manufacturer's Model Name           LO: 'Skyra'
+(0008, 0060) Modality                            CS: 'MR'
+(0018, 0083) Number of Averages                  DS: "1"
+(0018, 0089) Number of Phase Encoding Steps      IS: "358"
+(0008, 1070) Operators' Name                     PN: 'CW'
+(0010, 1010) Patient's Age                       AS: '006M'
+(0010, 0030) Patient's Birth Date                DA: '20141201'
+(0010, 0020) Patient ID                          LO: 'e587071'
+(0010, 0010) Patient's Name                      PN: 'anonymized'
+(0018, 5100) Patient Position                    CS: 'HFS'
+(0010, 0040) Patient's Sex                       CS: 'F'
+(0010, 1020) Patient's Size                      DS: "0.30480061"
+(0010, 1030) Patient's Weight                    DS: "7"
+(0018, 0094) Percent Phase Field of View         DS: "100"
+(0018, 0093) Percent Sampling                    DS: "100"
+(0040, 0254) Performed Procedure Step Descriptio LO: 'MR Brain with MRA'
+(0040, 0253) Performed Procedure Step ID         SH: '249643106'
+(0040, 0244) Performed Procedure Step Start Date DA: '20150707'
+(0040, 0245) Performed Procedure Step Start Time TM: '132511.310000'
+(0008, 1050) Performing Physician's Name         PN: 'MJC'
+(0028, 0004) Photometric Interpretation          CS: 'MONOCHROME2'
+(0008, 1048) Physician(s) of Record              PN: 'PhysiciansOfRecord'
+(0018, 0095) Pixel Bandwidth                     DS: "180"
+(0028, 0103) Pixel Representation                US: 0
+(0028, 0030) Pixel Spacing                       DS: ['0.78125', '0.78125']
+(0020, 1040) Position Reference Indicator        LO: ''
+(0018, 1030) Protocol Name                       LO: 'SAG MPRAGE'
+(0008, 1140) Referenced Image Sequence           SQ: <Sequence, length 3>
+(0008, 0090) Referring Physician's Name          PN: 'ReferringPhysicianName'
+(0018, 0080) Repetition Time                     DS: "2000"
+(0040, 0275) Request Attributes Sequence         SQ: <Sequence, length 1>
+(0032, 1060) Requested Procedure Description     LO: 'MR Brain with MRA'
+(0032, 1032) Requesting Physician                PN: 'RequestingPhysician'
+(0032, 1033) Requesting Service                  LO: 'CHLD_MA'
+(0028, 0010) Rows                                US: 256
+(0018, 1316) SAR                                 DS: "0.20787097647025"
+(0008, 0016) SOP Class UID                       UI: MR Image Storage
+(0008, 0018) SOP Instance UID                    UI: 1.3.12.2.1107.5.2.19.45152.201507071403322291486391
+(0028, 0002) Samples per Pixel                   US: 1
+(0018, 0022) Scan Options                        CS: 'IR'
+(0018, 0020) Scanning Sequence                   CS: ['GR', 'IR']
+(0018, 0024) Sequence Name                       SH: '*tfl3d1_16ns'
+(0018, 0021) Sequence Variant                    CS: ['SK', 'SP', 'MP', 'OSP']
+(0008, 0021) Series Date                         DA: '20150707'
+(0008, 103e) Series Description                  LO: 'SAG MPRAGE'
+(0020, 000e) Series Instance UID                 UI: 1.3.12.2.1107.5.2.19.45152.2015070713570433921385903.0.0.0
+(0020, 0011) Series Number                       IS: "5"
+(0008, 0031) Series Time                         TM: '140333.398000'
+(0020, 1041) Slice Location                      DS: "-6.3993032090693"
+(0018, 0050) Slice Thickness                     DS: "0.80000001192093"
+(0028, 0106) Smallest Image Pixel Value          US: 0
+(0018, 1020) Software Version(s)                 LO: 'syngo MR D13'
+(0008, 0005) Specific Character Set              CS: 'ISO_IR 100'
+(0008, 1010) Station Name                        SH: 'MRSKYRA1'
+(0008, 0020) Study Date                          DA: '20150707'
+(0008, 1030) Study Description                   LO: 'MR-Brain w/+w/o + Angiography w/o Contr'
+(0020, 0010) Study ID                            SH: '249643106'
+(0020, 000d) Study Instance UID                  UI: 1.2.840.113845.11.1000000001785349915.20150707114128.7514480
+(0008, 0030) Study Time                          TM: '132511'
+(0018, 1251) Transmit Coil Name                  SH: 'Body'
+(0018, 1315) Variable Flip Angle Flag            CS: 'N'
+(0028, 1050) Window Center                       DS: "209"
+(0028, 1055) Window Center & Width Explanation   LO: 'Algo1'
+(0028, 1051) Window Width                        DS: "500"
+(0018, 1318) dB/dt                               DS: "0"

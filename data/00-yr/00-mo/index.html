@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <title>00-yr/00-mo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+
+    var lastelem;
+    var display = 0;
+
+    var mouseX = 0, mouseY = 0;
+    var elemDisplay
+
+    function myMove(evt) {
+       evt = evt || window.event;
+
+        mouseX = evt.pageX;
+        mouseY = evt.pageY;
+
+        // IE 8
+        if (mouseX === undefined) {
+            mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+            mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+        }
+      }
+       document.onmousemove = myMove;
+       if (!window.event) {document.captureEvents(Event.MOUSEMOVE);}
+
+       function centerThumbnail(e){
+        var elem = document.elementFromPoint(mouseX, mouseY);
+        positionThumbnail(0.5, lastelem);
+      }
+
+      function positionThumbnail(normalizedPosition, target) {
+        var THUMBNAIL_HEIGHT
+        if (target.className == 128)
+          THUMBNAIL_HEIGHT = 128;
+        if (target.className == 350)
+          THUMBNAIL_HEIGHT = 350;
+        const TOTAL_HEIGHT = target.offsetHeight;
+        const nbFrames = TOTAL_HEIGHT / THUMBNAIL_HEIGHT;
+        const offset = Math.floor(normalizedPosition * nbFrames) * THUMBNAIL_HEIGHT;
+
+        if (target.nodeName == "IMG"){
+          if(normalizedPosition == 0.5)
+            setTimeout(function (){
+              target.style.transform =
+              `translateY(-${offset}px)`;
+            }, 10);
+          target.style.transform =
+          `translateY(-${offset}px)`;
+        }
+      }
+
+      function onMove(e) {
+        var elem = document.elementFromPoint(mouseX - window.pageXOffset, mouseY - window.pageYOffset);
+        var POSimg = getOffset(elem)
+        const normalizedPosition = (mouseX - POSimg.X) / elem.clientWidth;
+        lastelem = elem;
+        positionThumbnail(normalizedPosition, elem);
+      }
+
+      function getOffset(el) {
+        const rect = el.getBoundingClientRect();
+        return {
+          X: rect.left + window.scrollX,
+          Y: rect.top + window.scrollY
+        };
+      }
+
+      function findPos(obj){
+        var curleft = 0;
+        var curtop = 0;
+
+        if (obj.offsetParent) {
+          do {
+            curleft += obj.offsetLeft;
+            curtop += obj.offsetTop;
+          } while (obj = obj.offsetParent);
+
+          return {X:curleft,Y:curtop};
+        }
+      }
+
+
+      function resize(){
+        var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var displaywidth = width-765-(width*2/100)
+        if(document.getElementsByClassName('divhoverDisplay')[0]!= undefined){
+          document.getElementsByClassName('divhoverDisplay')[0].style.width = displaywidth+"px";
+        }
+        if(document.getElementsByClassName('divhoverHide')[0]!= undefined){
+          document.getElementsByClassName('divhoverHide')[0].style.width = displaywidth+"px";
+        }
+        if(width < 1350 && document.getElementsByClassName('divhoverDisplay')[0]!= undefined){
+          document.getElementsByClassName('divhoverDisplay')[0].className = 'divhoverHide';
+
+        }
+        else if (width > 1350 && document.getElementsByClassName('divhoverHide')[0]!= undefined){
+          document.getElementsByClassName('divhoverHide')[0].className = 'divhoverDisplay';
+
+        }
+      }
+
+    /*function displayHover(e){
+      if (document.getElementsByClassName('focus')[0]!= undefined)
+        document.getElementsByClassName('focus')[0].className = 'tg-0lax tab';
+       if (document.getElementsByClassName('divhoverDisplay')[0]!= undefined){
+        document.getElementsByClassName('divhoverDisplay')[0].style.background = "#333537";
+        e.parentNode.parentNode.className = "tg-0lax tab focus"
+        var seriesName = e.src.split('ex/')[1];
+        seriesName = seriesName.split('/preview.jpg')[0];
+        var imageSRC = e.src.split('preview')[0]+'dcm2jpgRaw/'+'middle-'+seriesName+'.jpg';
+        var tagrawSRC = e.src.split('preview')[0]+'tag-raw.txt'
+        var link = e.src.split("-ex/")[0]+'-ex/';
+        var tagraw;
+        var client = new XMLHttpRequest();
+        client.open('GET',tagrawSRC);
+        client.onreadystatechange = function() {
+          tagraw = client.responseText;
+          var content = '<br><div style = "text-align: center; font-size: 20px">'+seriesName+'</div><br>'
+          content = content + '<a href='+link+'><img style="width: 350px; height:350px; display: block; margin-left: auto; margin-right: auto;"src="'+imageSRC+'"></a>';
+          content = content + '<pre>'+tagraw+'</pre>'
+          document.getElementsByClassName('divhoverDisplay')[0].innerHTML = content;
+          elemDisplay = e
+        }
+        client.send();
+      }
+    }*/
+
+    function displayHover(e){
+      if (document.getElementsByClassName('focus')[0]!= undefined)
+        document.getElementsByClassName('focus')[0].className = 'tg-0lax tab';
+       if (document.getElementsByClassName('divhoverDisplay')[0]!= undefined){
+        document.getElementsByClassName('divhoverDisplay')[0].style.background = "#333537";
+        e.parentNode.parentNode.className = "tg-0lax tab focus"
+
+        var tmp_img = new Image();
+        tmp_img.src=e.src.split('preview')[0]+'raw-preview.jpg'
+        real_width = tmp_img.width
+        real_height = tmp_img.height
+        new_height = real_height/real_width*350
+        var seriesName = e.src.split('ex/')[1];
+        seriesName = seriesName.split('/preview.jpg')[0];
+        var tagrawSRC = e.src.split('preview')[0]+'tag-raw.txt'
+        var tagraw;
+        var link = e.src.split("-ex/")[0]+'-ex/';
+        var client = new XMLHttpRequest();
+        client.open('GET',tagrawSRC);
+        client.onreadystatechange = function() {
+          tagraw = client.responseText;
+          var content = '<br><div style = "text-align: center; font-size: 20px">'+seriesName+'</div><br>'
+          content = content + '<div style="width: 350px; height:350px; display: block;  margin: auto; overflow: hidden;"><a href='+link+'><img class = "350" style="width: 350px; height:'+new_height+'px;" src="'+e.src.split('preview')[0]+'raw-preview.jpg'+'" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></a></div>';
+          content = content + '<pre>'+tagraw+'</pre>'
+          document.getElementsByClassName('divhoverDisplay')[0].innerHTML = content;
+          elemDisplay = e
+        }
+        client.send();
+      }
+    }
+
+
+
+  </script>
+</head>
+<style type="text/css">
+    p {font-family: Ubuntu,Roboto,Helvetica,Arial,sans-serif;}
+    .tg {background-color: #000; font-family: Ubuntu,Roboto,Helvetica,Arial,sans-serif;}
+    .tg {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-size:14px;padding:2px 2px 2px 2px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:black;}
+    .tg th{font-size:14px;font-weight:normal;padding:2px 2px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:black;}
+    .tg td:hover{cursor: pointer; background-color: #fff; color: #000;}
+    .tg:hover{cursor: pointer; border:2px solid #fff;}
+    .tg .tg-0lax{text-align:left;vertical-align:middle; border:1px solid #1d1f21; white-space: nowrap; max-width: 128px; max-height: 128px;}
+    .table .th .td {border: 1px solid #4a4b4d;}
+    .divhoverHide {display:none;}
+    .divhoverDisplay {display:block; background-color : #1d1f21 ; z-index: 20; text-align: left; font-size: 11px; color : white;border-color: white; overflow: auto; font-family: Ubuntu,Roboto,Helvetica,Arial,sans-serif;}
+    a {text-decoration: none; color: #4a4b4d;}
+    img {min-width: 128px; min-height: 128px; background-color: #000;}
+    .previewContainer {height: 128px; width: 128px; margin: auto; overflow: hidden;}
+    .focus {background-color:#2196f3!important;}
+</style>
+
+<body style = "background-color: #1d1f21; color: white" onresize="resize()" onload="resize()">
+    <h1 style="font-family: Ubuntu,Roboto,Helvetica,Arial,sans-serif; position: relative; left:295px;">00-yr/00-mo</h1>
+    <p>
+    <b>Single</b> click on an image below to launch the embedded viewer.
+    </p>
+    <p> 
+    <b>Double</b> click on an image below to browse DICOM tags.
+    </p> 
+    <p>
+    Note that if the browser window is too small, the DICOM tag viewer will not display.
+    </p>
+    <div class="divhoverDisplay" style="position:fixed; top: 3%; left : 750px;height: 94%;"></div>
+    <br>
+            
+            
+            <table class="tg">
+               <tr>
+<th class="tg-0lax" rowspan="4" style="font-size: 18px; padding 0px 10px"><a href=subj-4-5386-ex>subj-4-5386-ex</a</th>
+<th class="tg-0lax" style="text-align: center;">SAG_MPRAGE</th>
+<th class="tg-0lax" style="text-align: center;">COR_FSE_T2</th>
+<th class="tg-0lax" style="text-align: center;">AX_TURBO_T1_</th>
+<th class="tg-0lax" style="text-align: center;">SAG_MPRAGE</th>
+<th class="tg-0lax" style="text-align: center;">AX_T2_FLAIR</th>
+
+                </tr>
+                <tr>
+                <td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/SAG_MPRAGE-SAG_MPRAGE-66502/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/COR_FSE_T2-COR_FSE_T2-66516/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/SAG_MPRAGE-SAG_MPRAGE-66563/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/AX_T2_FLAIR-AX_T2_FLAIR-66514/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+</tr>
+<tr>
+<th class="tg-0lax" style="text-align: center;">AX_TSE_T2</th>
+<th class="tg-0lax" style="text-align: center;">COR_MPRAGE</th>
+<th class="tg-0lax" style="text-align: center;">AX_MPRAGE</th>
+<th rowspan="2" colspan="1" style="text-align: center;"></th>
+
+                </tr>
+                <tr>
+                <td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/AX_TSE_T2-AX_TSE_T2-66498/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/COR_MPRAGE-SAG_MPRAGE-66562/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-4-5386-ex></a><img class ="128" src="subj-4-5386-ex/AX_MPRAGE-SAG_MPRAGE-66564/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+</tr>
+
+            </table>
+            <br>
+            
+            <table class="tg">
+               <tr>
+<th class="tg-0lax" rowspan="4" style="font-size: 18px; padding 0px 10px"><a href=subj-5-14141-ex>subj-5-14141-ex</a</th>
+<th class="tg-0lax" style="text-align: center;">ax_mprage_re</th>
+<th class="tg-0lax" style="text-align: center;">AX_TURBO_T1_</th>
+<th class="tg-0lax" style="text-align: center;">COR_TSE_T2</th>
+<th class="tg-0lax" style="text-align: center;">AX_TSE_T2</th>
+<th class="tg-0lax" style="text-align: center;">SAG_MPRAGE</th>
+
+                </tr>
+                <tr>
+                <td class="tg-0lax tab"><div class="previewContainer"><a href=subj-5-14141-ex></a><img class ="128" src="subj-5-14141-ex/ax_mprage_recon-SAG_MPRAGE-229557/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-5-14141-ex></a><img class ="128" src="subj-5-14141-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-230821/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-5-14141-ex></a><img class ="128" src="subj-5-14141-ex/COR_TSE_T2-COR_TSE_T2-230736/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-5-14141-ex></a><img class ="128" src="subj-5-14141-ex/AX_TSE_T2-AX_TSE_T2-228874/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+<td class="tg-0lax tab"><div class="previewContainer"><a href=subj-5-14141-ex></a><img class ="128" src="subj-5-14141-ex/SAG_MPRAGE-SAG_MPRAGE-229254/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+</tr>
+<tr>
+<th class="tg-0lax" style="text-align: center;">cor_mprage_r</th>
+<th rowspan="2" colspan="3" style="text-align: center;"></th>
+
+                </tr>
+                <tr>
+                <td class="tg-0lax tab"><div class="previewContainer"><a href=subj-5-14141-ex></a><img class ="128" src="subj-5-14141-ex/cor_mprage_recon-SAG_MPRAGE-228827/preview.jpg" ondblclick="displayHover(this)" onmousemove="onMove();" onmouseout="positionThumbnail(0.5, this);" onload="positionThumbnail(0.5, this);"></div></td>
+</tr>
+
+            </table>
+            <br>
+            
+<script>
+var timer = 0;
+var delay = 500;
+var prevent = false;
+
+$(".tg tr")
+  .on("dblclick", function() {
+    prevent = true;
+    clearTimeout(timer);
+  })
+  .on("click", function() {
+    var tableRaw = this
+    timer = setTimeout(function() {
+      if (!prevent) {
+        var href = $(tableRaw).find("a").attr("href");
+        if(href) {
+           window.location = href;
+        }
+      }
+      prevent = false;
+    }, delay);
+  });
+</script>
+</body>
+</html>
+            

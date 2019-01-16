@@ -1,0 +1,13 @@
+{
+    ".LINK": {
+        "name": ".LINK",
+        "imageLocation": [
+            "/home/pat/Documents/BostonChildrensDev/fnndsc-project/agesort//./00-yr/00-mo/subj-5-14141-ex/.LINK/ax_mprage_recon-SAG_MPRAGE-229557/dcm2jpgRaw/middle-ax_mprage_recon-SAG_MPRAGE-229557.jpg",
+            "/home/pat/Documents/BostonChildrensDev/fnndsc-project/agesort//./00-yr/00-mo/subj-5-14141-ex/.LINK/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-230821/dcm2jpgRaw/middle-AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-230821.jpg",
+            "/home/pat/Documents/BostonChildrensDev/fnndsc-project/agesort//./00-yr/00-mo/subj-5-14141-ex/.LINK/COR_TSE_T2-COR_TSE_T2-230736/dcm2jpgRaw/middle-COR_TSE_T2-COR_TSE_T2-230736.jpg",
+            "/home/pat/Documents/BostonChildrensDev/fnndsc-project/agesort//./00-yr/00-mo/subj-5-14141-ex/.LINK/AX_TSE_T2-AX_TSE_T2-228874/dcm2jpgRaw/middle-AX_TSE_T2-AX_TSE_T2-228874.jpg",
+            "/home/pat/Documents/BostonChildrensDev/fnndsc-project/agesort//./00-yr/00-mo/subj-5-14141-ex/.LINK/SAG_MPRAGE-SAG_MPRAGE-229254/dcm2jpgRaw/middle-SAG_MPRAGE-SAG_MPRAGE-229254.jpg",
+            "/home/pat/Documents/BostonChildrensDev/fnndsc-project/agesort//./00-yr/00-mo/subj-5-14141-ex/.LINK/cor_mprage_recon-SAG_MPRAGE-228827/dcm2jpgRaw/middle-cor_mprage_recon-SAG_MPRAGE-228827.jpg"
+        ]
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "query": {
+        "data": [
+            {
+                "SeriesInstanceUID": {
+                    "value": "1.3.12.2.1107.5.2.19.45152.2014091919333861513217302.0.0.0"
+                },
+                "uid": {
+                    "value": "1.3.12.2.1107.5.2.19.45152.2014091919333861513217302.0.0.0"
+                },
+                "SeriesDescription": {
+                    "value": "AX TURBO T1 FLAIR"
+                },
+                "StudyDescription": {
+                    "value": "MR-Brain w/o Contrast"
+                },
+                "ModalitiesInStudy": {
+                    "value": "not found"
+                },
+                "PatientID": {
+                    "value": "58137c2"
+                },
+                "PatientName": {
+                    "value": "anonymized"
+                },
+                "details": {
+                    "series": {
+                        "uid": "1.3.12.2.1107.5.2.19.45152.2014091919333861513217302.0.0.0",
+                        "description": "AX TURBO T1 FLAIR",
+                        "date": "20140919",
+                        "data": [
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0001-1.3.12.2.1107.5.2.19.45152.2014091919333965089517359.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0002-1.3.12.2.1107.5.2.19.45152.2014091919333851437717295.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0003-1.3.12.2.1107.5.2.19.45152.2014091919333967910517367.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0004-1.3.12.2.1107.5.2.19.45152.2014091919333859593017301.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0005-1.3.12.2.1107.5.2.19.45152.2014091919333967990717368.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0006-1.3.12.2.1107.5.2.19.45152.2014091919333871799417311.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0007-1.3.12.2.1107.5.2.19.45152.2014091919333972713717371.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0008-1.3.12.2.1107.5.2.19.45152.2014091919333857669217300.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0009-1.3.12.2.1107.5.2.19.45152.2014091919333995901217386.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0010-1.3.12.2.1107.5.2.19.45152.2014091919333895557217317.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0011-1.3.12.2.1107.5.2.19.45152.2014091919333993684417380.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0012-1.3.12.2.1107.5.2.19.45152.2014091919333868546417308.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0013-1.3.12.2.1107.5.2.19.45152.2014091919334013510517398.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0014-1.3.12.2.1107.5.2.19.45152.2014091919333865683217305.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0015-1.3.12.2.1107.5.2.19.45152.2014091919333991845917377.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0016-1.3.12.2.1107.5.2.19.45152.2014091919333895122817316.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0017-1.3.12.2.1107.5.2.19.45152.2014091919333995674617385.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0018-1.3.12.2.1107.5.2.19.45152.2014091919333910869517326.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0019-1.3.12.2.1107.5.2.19.45152.2014091919333991323017374.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0020-1.3.12.2.1107.5.2.19.45152.2014091919333898556817320.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0021-1.3.12.2.1107.5.2.19.45152.2014091919334014631017401.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0022-1.3.12.2.1107.5.2.19.45152.2014091919333923699417335.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0023-1.3.12.2.1107.5.2.19.45152.2014091919333996615017389.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0024-1.3.12.2.1107.5.2.19.45152.2014091919333912686017329.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0025-1.3.12.2.1107.5.2.19.45152.2014091919334010254817392.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0026-1.3.12.2.1107.5.2.19.45152.2014091919333910001917323.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0027-1.3.12.2.1107.5.2.19.45152.2014091919334012548317395.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0028-1.3.12.2.1107.5.2.19.45152.2014091919333917674717332.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0029-1.3.12.2.1107.5.2.19.45152.2014091919334017099017404.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0030-1.3.12.2.1107.5.2.19.45152.2014091919333961330617356.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0031-1.3.12.2.1107.5.2.19.45152.2014091919334021131917413.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0032-1.3.12.2.1107.5.2.19.45152.2014091919333952431417347.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0033-1.3.12.2.1107.5.2.19.45152.2014091919334020590717410.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0034-1.3.12.2.1107.5.2.19.45152.2014091919333940308417338.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0035-1.3.12.2.1107.5.2.19.45152.2014091919334017943117407.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0036-1.3.12.2.1107.5.2.19.45152.2014091919333944124317344.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0037-1.3.12.2.1107.5.2.19.45152.2014091919334026755817416.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0038-1.3.12.2.1107.5.2.19.45152.2014091919333942800117341.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0039-1.3.12.2.1107.5.2.19.45152.2014091919334029267417419.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0040-1.3.12.2.1107.5.2.19.45152.2014091919333959464717353.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0041-1.3.12.2.1107.5.2.19.45152.2014091919334033670317422.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0042-1.3.12.2.1107.5.2.19.45152.2014091919333954452517350.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0043-1.3.12.2.1107.5.2.19.45152.2014091919334035134417425.dcm",
+                            "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/0044-1.3.12.2.1107.5.2.19.45152.2014091919333967581017362.dcm"
+                        ],
+                        "files": "44",
+                        "preview": {
+                            "blob": "",
+                            "url": "00-yr/00-mo/subj-4-5386-ex/AX_TURBO_T1_FLAIR-AX_TURBO_T1_FLAIR-66546/preview.jpg"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
