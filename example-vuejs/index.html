@@ -1,0 +1,53 @@
+<html lang='en'>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <h1>Vue.js Tests</h1>
+        <p>
+        Testing some Vue.js stuff to wire up an image viewer.
+        </p>
+
+        <hr>
+
+        <section id='app'>
+            {{ hello }}
+            <image-main></image-main>
+            <image-two
+                :newsource=imgsrc
+                ></image-two>
+        </section>
+    </body>
+
+    <script>
+        Vue.component('image-main', {
+            // This component can mutate it's own property
+            template: '<img :src=source>',
+            data: function() {
+                return {
+                    source: 'image.jpg'
+                }
+            }
+        })
+        
+        Vue.component('image-two', {
+            // This component is tied to the app properties
+            // so mutate in the parent.
+            props: ['newsource'],
+            template: '<img :src=newsource>'
+        })
+
+        // Fire it up
+        var app = new Vue({
+            el: '#app',
+            data: {
+                hello: 'Yeah, hello world...',
+                imgsrc: "https://patdavid.net/2018/05/switching-themes//The_Dark.jpg",
+                test: { 
+                    isrc: 'https://patdavid.net/2018/05/goodbye-google-analytics//512px-Faust_und_Mephisto%2C_Stich_von_Tony_Johannot.jpg' 
+                }
+            }
+        })
+    </script>
+</html>
