@@ -18,9 +18,7 @@
             </div>            
             <image-main></image-main>
             <image-two
-                :newsource=obj.currImage
-                v-bind=obj
-                :word=obj.currImage
+                :data=obj
                 ></image-two>
         </section>
     </body>
@@ -34,7 +32,9 @@
         var store = {
             state: {
                 currImage: 'nyan.gif',
-                currIdx: null
+                currIdx: null,
+                currTotal: 0,
+                currLoaded: 0
             },
             imgList: [],
             loadImages (srcs) {
@@ -44,7 +44,7 @@
 
         Vue.component('image-main', {
             // This component can mutate it's own property
-            template: '<div><img :src=source></div>',
+            template: '<div></div>',
             data: function() {
                 return {
                     source: 'image.jpg'
@@ -55,17 +55,13 @@
         Vue.component('image-two', {
             // This component is tied to the app properties
             // so mutate in the parent.
-            props: ['newsource', 'word'],
+            props: ['data'],
             methods: {
                 wheelie: function( event ){
                     // event has deltaY for mousewheel
-                    console.log( event.deltaY );
-                    console.log( store.state.currIdx );
-                    if ( store.state.currIdx == null ){
-                        console.log( "It's null....");
-                        store.state.currIdx = 0;
-                        store.state.currImage = store.imgList[0].src;
-                    };
+                    //console.log( event.deltaY );
+                    //console.log( store.state.currIdx );
+                    console.log( "even.deltaX: " + event.deltaX );
                     if ( event.deltaY < 0 && store.state.currIdx > 0 ){
                         store.state.currIdx = store.state.currIdx - 1;
                         store.state.currImage = store.imgList[ store.state.currIdx ].src
@@ -74,15 +70,14 @@
                         store.state.currIdx = store.state.currIdx + 1;
                         store.state.currImage = store.imgList[ store.state.currIdx ].src
                     }
-                    //out( event );
                 }
             },
             computed: {
                 wordshort: function() {
-                    return this.word.substring(this.word.lastIndexOf('/') + 1);
+                    return this.data.currImage.substring(this.data.currImage.lastIndexOf('/') + 1);
                 }
             },
-            template: '<div><img @wheel="wheelie" :src=newsource><p>{{ wordshort }}</p></div>'
+            template: '<div><img @wheel="wheelie" :src=data.currImage><div> {{ data.currLoaded }} // {{ data.currTotal }} </div><span><p>{{ wordshort }}</p></span></div>'
         })
 
         // Fire it up
@@ -90,7 +85,6 @@
             el: '#app',
             data: {
                 hello: 'Yeah, hello world.  Try scrolling a mouse wheel over the image below:',
-                imgsrc: "https://patdavid.net/2018/05/switching-themes//The_Dark.jpg",
                 obj: store.state
             }
         })
@@ -98,6 +92,12 @@
         // Factory for image loading
         var loadImages = function( src ){
             var img = new Image();
+            img.onload = function (){
+                store.state.currLoaded = store.state.currLoaded + 1;
+                if( store.state.currLoaded == store.state.currTotal ){
+                    store.state.currImage = store.imgList[0].src;
+                }
+            }
             img.src = src;
             return img;
         }
@@ -108,7 +108,8 @@
 
         req.onload = function(){
             var resp = JSON.parse(req.responseText);
-            console.log( resp.length );
+            console.log( "resp.length: " + resp.images.length );
+            store.state.currTotal = resp.images.length;
             resp.images.forEach(function( iter ){
                 //console.log( req_uri + iter );
                 store.imgList.push( loadImages(req_uri + iter) );
