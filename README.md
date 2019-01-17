@@ -47,6 +47,9 @@ This is a classical decoupling of model data where the domain looks like:
 3. View through the page.  
     This can be any fancy view system you want (React, Vue.js, vanilla/bespoke).  Needs to couple with the JS controller layers as appropriate.
 
+This is really just a version of [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel).
+
+
 
 ### JavaScript Control
 
@@ -71,11 +74,12 @@ Firing up a viewer page:
 5. (future thoughts) - possibly store loaded object data into IndexDB to offload large data and hopefully keep the app responsive, while minimizing latency and network I/O to retrieve data objects that were already loaded.  Cache API might be a good option as well (allows offline caching of big data objects).
 
 
+### Examples
 
 #### XMLHttpRequest
 
 We can request JSON data from the data structures fairly easily using classical XMLHttpRequest objects in JavaScript.  
-Here is a quick [example xmlhttprequest](example-xmlhttprequest/) with the data.
+Here is a quick [**example xmlhttprequest**](example-xmlhttprequest/) with the data.
 
 
 #### Vue.js Components
@@ -86,7 +90,10 @@ data store.  I load a list of images on page load and use an async factory to lo
 Then use native Vue.js components and data binding to mutate the data when you scroll your mouse over the example image.
 This is _not_ fancy in any way, just a quick proof of concept that it works as expected (I've never used Vue.js before, so it's possibly a little ugly).
 
-Here is the [example Vue.js](example-vuejs/) page to play with.
+This is extensible to just about any framework, Reach, Angular, Vue, etc...  The idea being to bind the model data to a view component in the page and manage events for interacting with those views (load new ones, scroll through image sets, or even push information out to an REST endpoint/api to trigger further processing on larger clusters and then retrieve the results locally).
+
+Here is the [**example Vue.js**](example-vuejs/) page to play with.
+
 
 #### Scan/Study Class Example
 
