@@ -71,7 +71,9 @@
                     }else if ( event.deltaX > 0 &&  ss.currIdx < store.imgList.length ){
                         ss.currIdx > (store.imgList.length - 10) ? ss.currIdx = store.imgList.length - 1 : ss.currIdx = ss.currIdx + 10;
                     }
-                    ss.currImage = store.imgList[ ss.currIdx ].src
+                    ss.currImage = store.imgList[ ss.currIdx ].src;
+                    ss.currLoaded = ss.currIdx + 1;
+
                 }
             },
             computed: {
