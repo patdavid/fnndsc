@@ -69,7 +69,7 @@
                     }else if ( event.deltaX < 0 && ss.currIdx > 0 ){
                         ss.currIdx < 10 ? ss.currIdx = 0 : ss.currIdx = ss.currIdx - 10;
                     }else if ( event.deltaX > 0 &&  ss.currIdx < store.imgList.length ){
-                        ss.currIdx > (store.imgList.length - 10) ? ss.currIdx = store.imgList.length : ss.currIdx = ss.currIdx + 10;
+                        ss.currIdx > (store.imgList.length - 10) ? ss.currIdx = store.imgList.length - 1 : ss.currIdx = ss.currIdx + 10;
                     }
                     ss.currImage = store.imgList[ ss.currIdx ].src
                 }
