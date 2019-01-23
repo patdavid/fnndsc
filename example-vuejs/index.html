@@ -19,7 +19,8 @@
             <image-main></image-main>
             <image-two
                 :data=obj
-                ></image-two>
+                >
+            </image-two>
         </section>
     </body>
 
@@ -36,7 +37,9 @@
                 currImage: 'nyan.gif',
                 currIdx: null,
                 currTotal: 0,
-                currLoaded: 0
+                currLoaded: 0,
+                locx: 0,
+                locy: 0
             },
             imgList: [],
             loadImages (srcs) {
@@ -74,6 +77,16 @@
                     ss.currImage = store.imgList[ ss.currIdx ].src;
                     ss.currLoaded = ss.currIdx + 1;
 
+                },
+                movie: function( event ){
+                    console.log( 'X: '+ event.clientX );
+                    console.log( 'Y: '+ event.clientY );
+                    console.log( this.$refs.closeup.clientWidth );
+                    console.log( 'offsetLeft: '+ this.$refs.closeup.offsetLeft );
+                    console.log( 'offsetTop: '+ this.$refs.closeup.offsetTop );
+                    store.state.locx = ( (event.clientX - this.$refs.closeup.offsetLeft) / this.$refs.closeup.clientWidth ) * 100;
+                    store.state.locy = ( (event.clientY - this.$refs.closeup.offsetTop) / this.$refs.closeup.clientHeight ) * 100;
+                    console.log( 'locx: '+ store.state.locx  +' locy: '+ store.state.locy );
                 }
             },
             computed: {
@@ -81,7 +94,35 @@
                     return this.data.currImage.substring(this.data.currImage.lastIndexOf('/') + 1);
                 }
             },
-            template: '<div><img @wheel="wheelie" :src=data.currImage><div> {{ data.currLoaded }} // {{ data.currTotal }} </div><span><p>{{ wordshort }}</p></span></div>'
+            template: '<div><img @wheel="wheelie" @mousemove="movie" :src=data.currImage  ref="closeup"><div> {{ data.currLoaded }} // {{ data.currTotal }} </div><span><p>{{ wordshort }}</p></span><closer info=data></closer></div>'
+        })
+
+        Vue.component('closer', {
+            props: ['info'],
+            //data: function() {
+            //    return {
+            //        //styleObject: {
+            //        //    fontWeight: 'bold',
+            //        //    backgroundImage: "url('"+ this.data.currImage +"')",
+            //        //    width: '300px'
+            //        }
+            //    }
+            //},
+            computed: {
+                styleThing: function() {
+                    console.log( store.state.currImage );
+                    var styley = {
+                        color: 'red',
+                        width: '300px',
+                        height: '300px',
+                        backgroundSize: '250%',
+                        backgroundPosition: store.state.locx +'% '+ store.state.locy +'%',
+                        backgroundImage: 'url('+ store.state.currImage +')'
+                    }
+                    return styley;
+                }
+            },
+            template: '<div v-bind:style="styleThing"></div>'
         })
 
         // Fire it up
